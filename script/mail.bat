@@ -2,7 +2,7 @@
 setlocal
 
 REM Set recipient and message
-set "TO_EMAIL=mayurjungari2606@gmail.com"  REM The recipient's email address
+set "TO_EMAIL=mayurjungari2606@gmail.com"
 set "SUBJECT=Simple Notification"
 set "BODY=Hello from Mayur Jungari!"
 
@@ -17,7 +17,7 @@ powershell -ExecutionPolicy Bypass -Command ^
   "$smtpTo = '%TO_EMAIL%';" ^
   "$smtpUser = '%SMTP_USER%';" ^
   "$smtpPass = '%SMTP_PASS%';" ^
-  "$msg = New-Object System.Net.Mail.MailMessage $smtpFrom, $smtpTo, '%SUBJECT%', '%BODY%';" ^
+  "$msg = New-Object System.Net.Mail.MailMessage($smtpFrom, $smtpTo, '%SUBJECT%', '%BODY%');" ^
   "$smtp = New-Object Net.Mail.SmtpClient($smtpServer, 587);" ^
   "$smtp.EnableSsl = $true;" ^
   "$smtp.Credentials = New-Object System.Net.NetworkCredential($smtpUser, $smtpPass);" ^
