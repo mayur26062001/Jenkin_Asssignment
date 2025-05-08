@@ -1,19 +1,19 @@
 @echo off
 setlocal
 
-REM === Set recipient and message content ===
-set "TO_EMAIL=mayurjungari1@gmail.com"
+REM Set recipient and message
+set "TO_EMAIL=mayurjungari2606@gmail.com"  REM The recipient's email address
 set "SUBJECT=Simple Notification"
-set "BODY=Hello from Pre-scient!"
+set "BODY=Hello from Mayur Jungari!"
 
-REM === Jenkins should inject SMTP_PASS as a secret environment variable ===
-set "SMTP_USER=mayurj@pre-scient.com"
-set "SMTP_PASS=%SMTP_PASS%"
+REM SMTP credentials and settings (injected by Jenkins)
+set "SMTP_USER=mayurjungari1@gmail.com"  REM Gmail address for authentication
+set "SMTP_PASS=%SMTP_PASS%"  REM This is securely injected in Jenkins
 
-REM === Send email using PowerShell ===
+REM Send email using PowerShell
 powershell -ExecutionPolicy Bypass -Command ^
-  "$smtpServer = 'smtp.office365.com';" ^
-  "$smtpFrom = '%SMTP_USER%';" ^
+  "$smtpServer = 'smtp.gmail.com';" ^
+  "$smtpFrom = 'mayurjungari1@gmail.com';"  REM The sender's email address (your Gmail address) ^
   "$smtpTo = '%TO_EMAIL%';" ^
   "$smtpUser = '%SMTP_USER%';" ^
   "$smtpPass = '%SMTP_PASS%';" ^
